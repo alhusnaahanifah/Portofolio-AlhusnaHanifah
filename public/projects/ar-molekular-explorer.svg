@@ -1,0 +1,18 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="180" y1="120" x2="1020" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1E38"/>
+      <stop offset="1" stop-color="#18355D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="32" fill="url(#g1)"/>
+  <circle cx="320" cy="220" r="120" fill="#F59E0B" fill-opacity="0.16"/>
+  <circle cx="900" cy="490" r="220" fill="#22D3EE" fill-opacity="0.12"/>
+  <rect x="150" y="120" width="900" height="480" rx="28" stroke="#CFF7FF" stroke-opacity="0.18" stroke-width="4"/>
+  <rect x="290" y="220" width="180" height="180" rx="24" fill="#081124" fill-opacity="0.68" stroke="#FBBF24" stroke-opacity="0.55" stroke-width="4"/>
+  <rect x="490" y="180" width="220" height="220" rx="24" fill="#081124" fill-opacity="0.68" stroke="#67E8F9" stroke-opacity="0.5" stroke-width="4"/>
+  <rect x="740" y="250" width="150" height="150" rx="24" fill="#081124" fill-opacity="0.68" stroke="#A7F3D0" stroke-opacity="0.5" stroke-width="4"/>
+  <path d="M380 310L600 290L815 330" stroke="#E2F8FF" stroke-width="10" stroke-linecap="round" stroke-dasharray="14 18"/>
+  <text x="290" y="540" fill="#F8FBFF" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700">AR Molekular Explorer</text>
+  <text x="290" y="586" fill="#9CC0D7" font-family="Arial, Helvetica, sans-serif" font-size="22">Augmented Reality Learning</text>
+</svg>

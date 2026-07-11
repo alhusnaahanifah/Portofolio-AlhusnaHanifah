@@ -1,0 +1,11 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="32" fill="#10213D"/>
+  <circle cx="240" cy="180" r="130" fill="#14D3E0" fill-opacity="0.18"/>
+  <circle cx="980" cy="520" r="210" fill="#14D3E0" fill-opacity="0.12"/>
+  <rect x="140" y="140" width="920" height="440" rx="28" stroke="#BFF7FF" stroke-opacity="0.22" stroke-width="4"/>
+  <rect x="210" y="220" width="780" height="180" rx="24" fill="#0B162B" fill-opacity="0.72"/>
+  <path d="M320 330C380 250 460 250 520 330C580 410 660 410 720 330C780 250 860 250 920 330" stroke="#46E3EF" stroke-width="18" stroke-linecap="round"/>
+  <path d="M320 390C380 310 460 310 520 390C580 470 660 470 720 390C780 310 860 310 920 390" stroke="#8AEFFF" stroke-width="10" stroke-linecap="round" stroke-dasharray="16 18"/>
+  <text x="210" y="520" fill="#D8FBFF" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700">CIRVIA</text>
+  <text x="210" y="572" fill="#8FB6D6" font-family="Arial, Helvetica, sans-serif" font-size="24">Circuit Virtual Interactive Application</text>
+</svg>

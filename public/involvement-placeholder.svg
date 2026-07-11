@@ -1,0 +1,20 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="120" x2="1040" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1A2F"/>
+      <stop offset="1" stop-color="#17324D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="36" fill="url(#bg)"/>
+  <circle cx="260" cy="220" r="140" fill="#22D3EE" fill-opacity="0.14"/>
+  <circle cx="920" cy="620" r="220" fill="#34D399" fill-opacity="0.12"/>
+  <rect x="150" y="120" width="900" height="660" rx="28" stroke="#D7F7FF" stroke-opacity="0.16" stroke-width="4"/>
+  <rect x="290" y="230" width="620" height="320" rx="24" fill="#081124" fill-opacity="0.62"/>
+  <circle cx="420" cy="345" r="48" fill="#22D3EE" fill-opacity="0.8"/>
+  <circle cx="600" cy="320" r="58" fill="#34D399" fill-opacity="0.8"/>
+  <circle cx="770" cy="352" r="46" fill="#FBBF24" fill-opacity="0.82"/>
+  <path d="M390 430C470 380 530 380 610 430C690 480 750 480 830 430" stroke="#E6FBFF" stroke-width="10" stroke-linecap="round"/>
+  <rect x="380" y="520" width="440" height="26" rx="13" fill="#0B1628" fill-opacity="0.65"/>
+  <text x="290" y="660" fill="#E7FBFF" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">Student Welfare</text>
+  <text x="290" y="710" fill="#A2C2D8" font-family="Arial, Helvetica, sans-serif" font-size="22">Organization and teamwork</text>
+</svg>
