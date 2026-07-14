@@ -22,7 +22,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section className="bg-[#081124] py-20 px-6">
+    <section id="about" className="bg-[#081124] py-20 px-6">
       <div className="max-w-5xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">
           Get to know me

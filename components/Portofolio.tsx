@@ -22,67 +22,35 @@ const projects: Project[] = [
     tags: ["AI", "Web", "Competition"],
   },
   {
-    slug: "radiology-captioning-ai",
+    slug: "medical-image-captioning",
     title: "Medical Image Captioning AI - Undergraduate Thesis Project",
     sub: "Computer vision · NLP",
-    image: "/projects/radiology-captioning-ai.svg",
+    image: "/projects/skripsi (2).png",
     alt: "Radiology captioning AI project preview",
     tags: ["AI/ML", "NLP", "CV"],
   },
   {
-    slug: "AR-molekular-explorer",
-    title: "AR Molekular Explorer-Competition Project 🏅",
+    slug: "AR-molecular-explorer",
+    title: "AR Molecular Explorer-Competition Project 🏅",
     sub: "Augmented Reality · Educational Application · Finalist at LIDM 2024",
-    image: "/projects/ar-molekular-explorer.svg",
-    alt: "AR Molekular Explorer project preview",
+    image: "/projects/arme.png",
+    alt: "AR Molecular Explorer project preview",
     tags: ["AR", "Mobile Application", "Education"],
   },
   {
     slug: "HidroGrow",
     title: "HidroGrow - Academic Project",
     sub: "Web Application",
-    image: "/projects/hidrogrow.svg",
+    image: "/projects/hg1.png",
     alt: "HidroGrow project preview",
     tags: ["Web", "Recommendation","Fullstack"],
-  },
-  {
-    slug: "AI-Voice-Assistant",
-    title: "AI Voice Assistant - Academic Project",
-    sub: "Web Application",
-    image: "/projects/cirvia.svg",
-    alt: "AI Voice Assistant project preview",
-    tags: ["AI", "Web","Fullstack"],
-  },
-  {
-    slug: "Document-Search-and-Retrieval-System",
-    title: "Document Search and Retrieval System - Academic Project",
-    sub: "Web Application",
-    image: "/projects/cirvia.svg",
-    alt: "Document Search and Retrieval System project preview",
-    tags: ["Retrieval", "Web","Fullstack"],
-  },
-  {
-    slug: "Cell-Quest-Game",
-    title: "Cell Quest - Academic Project",
-    sub: "Game Development · Unity",
-    image: "/projects/cirvia.svg",
-    alt: "Cell Quest - Game project preview",
-    tags: ["Game", "Mobile","Fullstack"],
-  },
-  {
-    slug: "Student-Depression-Detection-System",
-    title: "Student Depression Detection System - Academic Project",
-    sub: "AI · Rule-based",
-    image: "/projects/cirvia.svg",
-    alt: "Student Depression Detection System project preview",
-    tags: ["AI", "Rule-based","Web"],
   },
 ];
 
 export default function Portofolio() {
   return (
-    <section className="bg-[#081124] py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="portfolio" className="bg-[#081124] py-20 px-6">
+      <div className="max-w-5xl mx-auto">
         <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">
           My Work
         </p>
@@ -103,6 +71,8 @@ export default function Portofolio() {
                     src={project.image}
                     alt={project.alt}
                     fill
+                    priority={project.slug === "CIRVIA"}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#081124]/55 via-[#081124]/10 to-transparent" />

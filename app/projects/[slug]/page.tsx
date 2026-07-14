@@ -2,8 +2,14 @@
 
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, PlayCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  ChevronRight,
+  ExternalLink,
+  PlayCircle,
+} from "lucide-react";
 import { projects, getProjectBySlug } from "@/lib/projects-data";
+import { ProjectGallery } from "@/components/ProjectGallery";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -15,127 +21,129 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   if (!project) return notFound();
 
   return (
-    <section className="bg-[#081124] min-h-screen py-16 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative min-h-screen overflow-hidden bg-[#040812] px-6 py-12 text-white sm:py-16">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at top left, rgba(0,209,255,0.16), transparent 30%), radial-gradient(circle at top right, rgba(59,130,246,0.16), transparent 28%), linear-gradient(180deg, rgba(8,17,36,0.95), rgba(4,8,18,1))",
+        }}
+      />
+      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-8">
 
         <Link
-          href="/#projects"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-cyan-400 transition mb-10"
+          href="/#portfolio"
+          className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-200"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to projects
         </Link>
 
-        {/* Header */}
-        <div className="flex gap-1.5 mb-3">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <h1 className="text-3xl font-medium text-white mb-2">{project.title}</h1>
-        <p className="text-gray-500 text-sm mb-10">{project.sub}</p>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="flex flex-col gap-8">
+            <header className="rounded-[28px] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-cyan-950/20 backdrop-blur-xl sm:p-10">
+              <div className="mb-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.28em] text-cyan-200"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-        {/* Image gallery */}
-        <div className="grid grid-cols-2 gap-3 mb-12">
-          {project.images.map((img, i) => (
-            <div
-              key={i}
-              className={`rounded-xl overflow-hidden border border-white/5 ${
-                i === 0 ? "col-span-2 h-72" : "h-40"
-              }`}
-            >
-              <img
-                src={img}
-                alt={`${project.title} screenshot ${i + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+              <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                {project.title}
+              </h1>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                {project.sub}
+              </p>
 
-        {/* Links */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {project.demoUrl && (
-            
-              <a href={project.demoUrl}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-400 text-[#06121f] text-sm font-medium"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live demo
-            </a>
-          )}
-          {project.videoUrl && (
-            
-              <a href={project.videoUrl}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-cyan-500/30 text-cyan-400 text-sm"
-            >
-              <PlayCircle className="w-4 h-4" />
-              Video demo
-            </a>
-          )}
-          {project.githubUrl && (
-            
-              <a href={project.githubUrl}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 text-gray-300 text-sm"
-            >
-              <GithubIcon className="w-4 h-4" />
-              GitHub repo
-            </a>
-          )}
-        </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live demo
+                  </a>
+                )}
+                {project.videoUrl && (
+                  <a
+                    href={project.videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-3 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/60 hover:bg-cyan-400/15"
+                  >
+                    <PlayCircle className="h-4 w-4" />
+                    Video demo
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-white/20 hover:bg-white/10"
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                    GitHub repo
+                  </a>
+                )}
+              </div>
+            </header>
 
-        {/* Content sections */}
-        <div className="flex flex-col gap-10">
+            <section className="rounded-[28px] border border-white/10 bg-slate-950/40 p-4 shadow-2xl shadow-slate-950/30 backdrop-blur-xl sm:p-5">
+              <ProjectGallery images={project.images} title={project.title} />
+            </section>
+          </div>
 
-          <DetailSection title="Overview">
-            <p>{project.overview}</p>
-          </DetailSection>
-
-          <DetailSection title="Problem">
-            <p>{project.problem}</p>
-          </DetailSection>
-
-          <DetailSection title="My contributions">
-            <ul className="flex flex-col gap-2">
-              {project.contributions.map((c, i) => (
-                <li key={i} className="flex gap-2 text-gray-400 text-sm leading-relaxed">
-                  <span className="text-cyan-400 mt-0.5">—</span>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </DetailSection>
-
-          <DetailSection title="Technologies">
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-3 py-1.5 rounded-md border border-white/10 text-gray-400"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </DetailSection>
-
-          <DetailSection title="Challenges">
-            <p>{project.challenges}</p>
-          </DetailSection>
-
-          <DetailSection title="Result">
-            <p>{project.result}</p>
-          </DetailSection>
-
-          <DetailSection title="Key learning">
-            <p>{project.keyLearning}</p>
-          </DetailSection>
-
+          <aside className="grid gap-4 self-start lg:sticky lg:top-8">
+            <InfoCard title="Overview" accent="cyan">
+              <p>{project.overview}</p>
+            </InfoCard>
+            <InfoCard title="Problem" accent="blue">
+              <p>{project.problem}</p>
+            </InfoCard>
+            <InfoCard title="My contributions" accent="teal">
+              <ul className="flex flex-col gap-3">
+                {project.contributions.map((c, i) => (
+                  <li key={i} className="flex gap-3 text-sm leading-relaxed text-slate-300">
+                    <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300" />
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </InfoCard>
+            <InfoCard title="Technologies" accent="slate">
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-200"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </InfoCard>
+            <InfoCard title="Challenges" accent="cyan">
+              <p>{project.challenges}</p>
+            </InfoCard>
+            <InfoCard title="Result" accent="blue">
+              <p>{project.result}</p>
+            </InfoCard>
+            <InfoCard title="Key learning" accent="teal">
+              <p>{project.keyLearning}</p>
+            </InfoCard>
+          </aside>
         </div>
       </div>
     </section>
@@ -151,20 +159,33 @@ function GithubIcon({ className }: { className?: string }) {
   );
 }
 
-
-function DetailSection({
+function InfoCard({
   title,
+  accent,
   children,
 }: {
   title: string;
+  accent: "cyan" | "blue" | "teal" | "slate";
   children: React.ReactNode;
 }) {
+  const accentClass =
+    accent === "cyan"
+      ? "from-cyan-400/20 via-cyan-400/10 to-transparent"
+      : accent === "blue"
+        ? "from-blue-400/20 via-blue-400/10 to-transparent"
+        : accent === "teal"
+          ? "from-teal-400/20 via-teal-400/10 to-transparent"
+          : "from-white/10 via-white/5 to-transparent";
+
   return (
-    <div className="border-t border-white/5 pt-6">
-      <p className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-        {title}
-      </p>
-      <div className="text-gray-400 text-sm leading-relaxed">{children}</div>
-    </div>
+    <section className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-slate-950/20 backdrop-blur-xl">
+      <div className={`h-1 bg-linear-to-r ${accentClass}`} />
+      <div className="p-5 sm:p-6">
+        <p className="mb-3 text-xs uppercase tracking-[0.3em] text-slate-400">
+          {title}
+        </p>
+        <div className="text-sm leading-7 text-slate-300">{children}</div>
+      </div>
+    </section>
   );
 }

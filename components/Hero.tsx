@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
 const TYPED_TEXT = "Alhusna Hanifah";
@@ -12,6 +13,7 @@ export default function Hero() {
   const [displayed, setDisplayed] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     if (!isDeleting && charIndex < TYPED_TEXT.length) {
@@ -69,13 +71,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="bg-[#081124] h-[800px] flex flex-col items-center justify-center relative shadow-xl overflow-hidden">
+    <section id="hero" className="bg-[#081124] h-[800px] flex flex-col items-center justify-center relative shadow-xl overflow-hidden">
       <video ref={videoRef} className="hero-video" src="/videobg.mp4" muted playsInline preload="auto" autoPlay />
 
       <div className="relative z-10 flex flex-col items-center">
         <img src="/profile.png" alt="profile" className="w-40 h-40 rounded-full object-cover border-4 border-cyan-500 shadow-[0_0_40px_#00bfff]" />
 
-        <h1 className="text-6xl font-bold text-white mt-8">
+        <h1 className="text-5xl font-bold text-white mt-8">
           Hi, I'm{" "}
           <span className="text-cyan-400">
             {displayed}
@@ -86,14 +88,52 @@ export default function Hero() {
         </h1>
 
         {/* sisa JSX tetap sama */}
-        <p className="text-2xl text-gray-300 mt-4"> Informatics Graduate</p>
-        <p className="max-w-xl text-center text-gray-400 mt-6 whitespace-nowrap">
-          Passionate about Artificial Intelligence, Machine Learning, and Web Development.
+        <p className="text-xl text-gray-300 mt-4"> AI Engineer • Full-Stack Developer</p>
+        <p className="max-w-xl text-center text-gray-400 mt-6">
+          Fresh Graduate in Informatics | Cum Laude (GPA 3.90/4.00)
+        </p>
+        <p className="max-w-xl text-center text-gray-400">
+          🥉 Bronze Medalist — National Digital Innovation Competition (LIDM) 2025.
         </p>
         <div className="flex gap-4 mt-10">
-          <button className="px-8 py-3 rounded-full bg-cyan-500 text-white">View Projects</button>
-          <button className="px-8 py-3 rounded-full border border-cyan-500 text-cyan-400">Download CV</button>
+        <a href="#portfolio" className="px-8 py-3 rounded-full bg-cyan-500 text-white">
+          Explore My Work
+        </a>
+
+        <div className="relative">
+          <button
+            onClick={() => setResumeOpen((v) => !v)}
+            className="px-8 py-3 rounded-full border border-cyan-500 text-cyan-400 flex items-center gap-2"
+          >
+            Resume
+            <ChevronDown
+              size={16}
+              className={`transition-transform duration-200 ${resumeOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+
+          {resumeOpen && (
+            <div
+              className="absolute top-full mt-2 left-0 min-w-[200px] bg-[#0c1a33] border border-cyan-500/30 rounded-lg overflow-hidden shadow-lg shadow-black/30 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+            >
+              <a
+                href="/cv-resume-eng.pdf"
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+              >
+                🇬🇧 English
+              </a>
+              <a
+                href="/cv-resume-ind.pdf"
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+              >
+                🇮🇩 Bahasa Indonesia
+              </a>
+            </div>
+          )}
         </div>
+      </div>
       </div>
     </section>
   );
