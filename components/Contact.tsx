@@ -3,8 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown, Mail, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const contactItems = [
+type ContactItem = {
+  label: string;
+  description: string;
+  value: string;
+  href: string;
+  icon: LucideIcon | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+const contactItems: ContactItem[] = [
   {
     label: "LinkedIn",
     description: "Connect professionally",
