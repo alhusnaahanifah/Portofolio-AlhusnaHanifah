@@ -35,9 +35,9 @@ export default function About() {
             <div className="lg:sticky lg:top-24">
               <div className="relative overflow-hidden rounded-xl border border-white/10">
                 <img
-                  src="/mehusna.jpeg"
+                  src="/husname.jpg"
                   alt="Alhusna Hanifah"
-                  className="w-full h-[420px] sm:h-[480px] lg:h-[560px] object-cover"
+                  className="w-full aspect-3/4 lg:aspect-3/5 object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#081124] via-[#081124]/70 to-transparent p-5">
                   <span className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">

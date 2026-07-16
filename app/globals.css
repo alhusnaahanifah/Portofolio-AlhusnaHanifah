@@ -103,3 +103,11 @@ body {
   pointer-events: none;
   transform-origin: center;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -71,70 +71,69 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="bg-[#081124] h-[800px] flex flex-col items-center justify-center relative shadow-xl overflow-hidden">
-      <video ref={videoRef} className="hero-video" src="/videobg.mp4" muted playsInline preload="auto" autoPlay />
+    <section id="hero" className="bg-[#081124] min-h-dvh md:h-200 px-4 flex flex-col items-center justify-center relative shadow-xl">
+      <div className="absolute inset-0 overflow-hidden">
+        <video ref={videoRef} className="hero-video" src="/videobg.mp4" muted playsInline preload="auto" autoPlay />
+      </div>
 
-      <div className="relative z-10 flex flex-col items-center">
-        <img src="/profile.png" alt="profile" className="w-40 h-40 rounded-full object-cover border-4 border-cyan-500 shadow-[0_0_40px_#00bfff]" />
+      <div className="relative z-10 flex flex-col items-center w-full max-w-2xl">
+        <img
+          src="/profile.png"
+          alt="profile"
+          className="w-28 h-28 md:w-40 md:h-40 rounded-full object-cover border-4 border-cyan-500 shadow-[0_0_40px_#00bfff]"
+        />
 
-        <h1 className="text-5xl font-bold text-white mt-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-8 text-center">
           Hi, I'm{" "}
           <span className="text-cyan-400">
             {displayed}
-            {charIndex < TYPED_TEXT.length && (
-              <span className="animate-pulse">|</span>
-            )}
+            {charIndex < TYPED_TEXT.length && <span className="animate-pulse">|</span>}
           </span>
         </h1>
 
-        {/* sisa JSX tetap sama */}
-        <p className="text-xl text-gray-300 mt-4"> AI Engineer • Full-Stack Developer</p>
-        <p className="max-w-xl text-center text-gray-400 mt-6">
+        <p className="text-lg md:text-xl text-gray-300 mt-4 text-center">
+          AI Engineer • Full-Stack Developer
+        </p>
+        <p className="max-w-xl text-center text-sm md:text-base text-gray-400 mt-6">
           Fresh Graduate in Informatics | Cum Laude (GPA 3.90/4.00)
         </p>
-        <p className="max-w-xl text-center text-gray-400">
+        <p className="max-w-xl text-center text-sm md:text-base text-gray-400">
           🥉 Bronze Medalist — National Digital Innovation Competition (LIDM) 2025.
         </p>
-        <div className="flex gap-4 mt-10">
-        <a href="#portfolio" className="px-8 py-3 rounded-full bg-cyan-500 text-white">
-          Explore My Work
-        </a>
 
-        <div className="relative">
-          <button
-            onClick={() => setResumeOpen((v) => !v)}
-            className="px-8 py-3 rounded-full border border-cyan-500 text-cyan-400 flex items-center gap-2"
+        <div className="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto">
+          <a
+            href="#portfolio"
+            className="px-8 py-3 rounded-full bg-cyan-500 text-white text-center"
           >
-            Resume
-            <ChevronDown
-              size={16}
-              className={`transition-transform duration-200 ${resumeOpen ? "rotate-180" : ""}`}
-            />
-          </button>
+            Explore My Work
+          </a>
 
-          {resumeOpen && (
-            <div
-              className="absolute top-full mt-2 left-0 min-w-[200px] bg-[#0c1a33] border border-cyan-500/30 rounded-lg overflow-hidden shadow-lg shadow-black/30 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+          <div className="relative w-full sm:w-auto">
+            <button
+              onClick={() => setResumeOpen((v) => !v)}
+              className="w-full sm:w-auto px-8 py-3 rounded-full border border-cyan-500 text-cyan-400 flex items-center justify-center gap-2"
             >
-              <a
-                href="/cv-resume-eng.pdf"
-                target="_blank"
-                className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
-              >
-                🇬🇧 English
-              </a>
-              <a
-                href="/cv-resume-ind.pdf"
-                target="_blank"
-                className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
-              >
-                🇮🇩 Bahasa Indonesia
-              </a>
-            </div>
-          )}
+              Resume
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${resumeOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {resumeOpen && (
+              <div className="absolute top-full mt-2 left-0 right-0 sm:right-auto min-w-full sm:min-w-50 bg-[#0c1a33] border border-cyan-500/30 rounded-lg overflow-hidden shadow-lg shadow-black/30 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <a href="/cv-resume-eng.pdf" target="_blank" className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors">
+                  🇬🇧 English
+                </a>
+                <a href="/cv-resume-ind.pdf" target="_blank" className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors">
+                  🇮🇩 Bahasa Indonesia
+                </a>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-      </div>
+        </div>
     </section>
   );
 }

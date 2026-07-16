@@ -103,9 +103,6 @@ export default function WorkExp() {
                   <div className="rounded-2xl border border-white/10 bg-[#091122] p-2 sm:p-3 sm:pl-6 transition-colors hover:border-cyan-400/20 hover:bg-[#0b1528]">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-500/10 text-cyan-300 shrink-0 sm:hidden">
-                          <Users className="h-5 w-5" />
-                        </div>
 
                         <div>
                           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs font-medium text-cyan-300 mb-3">

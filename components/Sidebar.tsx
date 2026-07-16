@@ -61,30 +61,50 @@ export default function Sidebar() {
     sectionId === activeSection ? "text-cyan-400" : "text-white";
 
   return (
-    <div className="fixed left-10 top-1/2 -translate-y-1/2 z-50">
-      <nav className="bg-[#081124] p-4 rounded-full flex flex-col gap-6 shadow-[0_0_40px_#00bfff]">
-        {navItems.map(({ id, label, icon: Icon }) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            aria-label={`Go to ${label} section`}
-            aria-current={activeSection === id ? "true" : undefined}
-            className="group relative transition-transform hover:scale-110"
-          >
-            <Icon className={iconClassName(id)} size={20} />
-
-            <span
-              className="pointer-events-none absolute left-full top-1/2 ml-3 -translate-y-1/2
-                         whitespace-nowrap rounded-md bg-[#081124] border border-white/10
-                         px-3 py-1.5 text-xs font-medium text-white
-                         opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100
-                         transition-all duration-150 shadow-lg"
+    <>
+      {/* Desktop: vertical sidebar kiri */}
+      <div className="hidden md:block fixed left-10 top-1/2 -translate-y-1/2 z-50">
+        <nav className="bg-[#081124] p-4 rounded-full flex flex-col gap-6 shadow-[0_0_40px_#00bfff]">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              aria-label={`Go to ${label} section`}
+              aria-current={activeSection === id ? "true" : undefined}
+              className="group relative transition-transform hover:scale-110"
             >
-              {label}
-            </span>
-          </a>
-        ))}
-      </nav>
-    </div>
+              <Icon className={iconClassName(id)} size={20} />
+
+              <span
+                className="pointer-events-none absolute left-full top-1/2 ml-3 -translate-y-1/2
+                           whitespace-nowrap rounded-md bg-[#081124] border border-white/10
+                           px-3 py-1.5 text-xs font-medium text-white
+                           opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100
+                           transition-all duration-150 shadow-lg"
+              >
+                {label}
+              </span>
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      {/* Mobile: horizontal bottom bar, scrollable */}
+      <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[92vw] max-w-sm">
+        <nav className="w-full bg-[#081124] px-2 py-3 rounded-full flex items-center justify-between gap-1 shadow-[0_0_40px_#00bfff]">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              aria-label={`Go to ${label} section`}
+              aria-current={activeSection === id ? "true" : undefined}
+              className="flex-1 flex justify-center p-2  transition-transform active:scale-95"
+            >
+              <Icon className={iconClassName(id)} size={18} />
+            </a>
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }
